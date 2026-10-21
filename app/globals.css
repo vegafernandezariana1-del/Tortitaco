@@ -114,3 +114,13 @@ a:focus-visible,button:focus-visible{outline:3px solid #211510;outline-offset:5p
 @media(max-width:560px){.topbar .brand{left:4vw}}
 .stage-counter .stage-instruction{margin-left:auto;font:800 9px var(--body);letter-spacing:.18em;text-align:right}
 @media(max-width:560px){.stage-counter .stage-instruction{font-size:7px}}
+
+/* Reencuadre adaptativo: horizontal en escritorio, vertical a pantalla completa en móvil. */
+.hero-collage{position:absolute;z-index:0;inset:0!important;width:100%;height:100%;aspect-ratio:auto;display:block;overflow:hidden;pointer-events:none}
+.hero-collage img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero{position:relative;isolation:isolate;justify-content:center;align-items:center;background:#fd7402}
+.hero-mark{position:relative;z-index:2;width:min(780px,82vw);margin:0;padding:0;text-align:center}
+.hero h1{font-size:clamp(42px,5.2vw,82px)}
+@media(max-width:800px){.hero{height:100svh;min-height:650px;padding:90px 6vw 65px;align-items:center}.hero-mark{width:min(520px,86vw);margin:0}.hero h1{font-size:clamp(36px,9vw,56px)}.hero-collage{inset:0!important;width:100%;height:100%;aspect-ratio:auto}.hero-collage img{object-fit:cover;object-position:center}}
+@media(max-width:560px){.hero{height:100svh;min-height:620px;padding:82px 6vw 56px}.hero-mark{margin:0}.hero h1{font-size:clamp(36px,9vw,49px)}.hero-mark p{font-size:13px}}
+@media(max-width:800px){.topbar .brand{color:#351d10;text-shadow:0 1px 3px #fd740280}.topbar .brand small{color:#351d10;opacity:1}}

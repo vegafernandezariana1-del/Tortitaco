@@ -126,7 +126,7 @@ export default function ProductExperience({ products }) {
     <section id="inicio" className="hero">
       <div className="hero-orbit orbit-one"/><div className="hero-orbit orbit-two"/>
       <div className="hero-mark"><span className="eyebrow">UN CRUNCH PARA CADA ANTOJO</span><h1><span>EL ANTOJO</span><br/><em>CRUJE</em> <span>AQUÍ.</span></h1><p>Cuatro sabores. Un solo plan: compartir.</p><a className="pill-button" href="#sabores">DESCUBRE LOS SABORES <span className="ui-arrow down" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 3v14M4 11l6 6 6-6"/></svg></span></a></div>
-      <div className="hero-collage"><Image src="/images/portada-horizontal.jpg" alt="Composición de varios empaques Tortitacos de distintos sabores" fill priority sizes="(max-width: 800px) 100vw, 58vw" /></div>
+      <picture className="hero-collage"><source media="(max-width: 800px)" srcSet="/images/portada-vertical.jpg"/><img src="/images/portada-horizontal.jpg" alt="Composición de varios empaques Tortitacos de distintos sabores" fetchPriority="high"/></picture>
       <div className="hero-side-note">HECHOS PARA<br/>ROMPER LA RUTINA</div>
     </section>
 

@@ -120,20 +120,20 @@ export default function ProductExperience({ products }) {
   }, [activeIndex, products]);
 
   return <main ref={root}>
-    <header className="topbar"><a className="brand" href="#inicio" aria-label="Tortitacos, inicio"><span className="brand-icon">〰</span><span>TORTITACOS<small>EL ANTOJO CRUJE</small></span></a><div className="header-actions"><a className="nav-link" href="#sabores">NUESTROS SABORES <span className="ui-arrow" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M5 5 15 15M6 15h9V6"/></svg></span></a><button type="button" className="cart-trigger" onClick={() => setCartOpen(true)} aria-label={`Abrir carrito, ${cartCount} productos`}><span>CARRITO</span><span className="cart-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 9H6M9 21h.01M18 21h.01"/></svg></span><b>{cartCount}</b></button></div></header>
+    <header className="topbar"><a className="brand" href="#inicio" aria-label="Tortitacos, inicio"><span className="brand-icon">〰</span><span>TORTITACOS<small>EL ANTOJO CRUJE</small></span></a><div className="header-actions"><button type="button" className="cart-trigger" onClick={() => setCartOpen(true)} aria-label={`Abrir carrito, ${cartCount} productos`}><span>CARRITO</span><span className="cart-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 9H6M9 21h.01M18 21h.01"/></svg></span><b>{cartCount}</b></button></div></header>
     {cartCount > 0 && <button type="button" className="checkout-sticky" onClick={() => setCartOpen(true)} aria-label={`Completar pedido de ${cartCount} productos, total ${money(cartTotal ?? 0)}`}><span className="checkout-sticky-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 9H6M9 21h.01M18 21h.01"/></svg></span><span>COMPLETAR PEDIDO</span><b>{money(cartTotal ?? 0)}</b><span className="checkout-sticky-count">{cartCount}</span></button>}
 
     <section id="inicio" className="hero">
       <div className="hero-orbit orbit-one"/><div className="hero-orbit orbit-two"/>
-      <div className="hero-mark"><span className="eyebrow">UN CRUNCH PARA CADA ANTOJO</span><h1>EL ANTOJO<br/><em>CRUJE</em> AQUÍ.</h1><p>Cuatro sabores. Un solo plan: compartir.</p><a className="pill-button" href="#sabores">DESCUBRE LOS SABORES <span className="ui-arrow down" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 3v14M4 11l6 6 6-6"/></svg></span></a></div>
-      <div className="hero-collage"><Image src="/images/portada.jpg" alt="Composición de varios empaques Tortitacos de distintos sabores" fill priority sizes="(max-width: 800px) 100vw, 58vw" /></div>
-      <div className="hero-side-note">HECHOS PARA<br/>ROMPER LA RUTINA</div><div className="scroll-hint"><span/> DESLIZA PARA EXPLORAR</div>
+      <div className="hero-mark"><span className="eyebrow">UN CRUNCH PARA CADA ANTOJO</span><h1><span>EL ANTOJO</span><br/><em>CRUJE</em> <span>AQUÍ.</span></h1><p>Cuatro sabores. Un solo plan: compartir.</p><a className="pill-button" href="#sabores">DESCUBRE LOS SABORES <span className="ui-arrow down" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 3v14M4 11l6 6 6-6"/></svg></span></a></div>
+      <div className="hero-collage"><Image src="/images/portada-horizontal.jpg" alt="Composición de varios empaques Tortitacos de distintos sabores" fill priority sizes="(max-width: 800px) 100vw, 58vw" /></div>
+      <div className="hero-side-note">HECHOS PARA<br/>ROMPER LA RUTINA</div>
     </section>
 
     <section id="sabores" className="showcase" aria-label="Presentación de los cuatro sabores">
       <div className="showcase-stage" style={{ '--scene-color': products[activeIndex].color }}>
         <div className="stage-grain"/><div className="stage-orb"/>
-        <div className="stage-counter"><span>{String(activeIndex + 1).padStart(2, '0')} — {String(products.length).padStart(2, '0')}</span><span>TOCA LA BOLSA PARA CAMBIAR</span></div>
+        <div className="stage-counter"><span className="stage-instruction">TOCA LA BOLSA PARA CAMBIAR</span></div>
         <div className="stage-product">
           {products.map((product, i) => <button type="button" className={`scene-bag${i === activeIndex ? ' is-active' : ''}`} key={product.id} onClick={advanceFlavor} aria-label={`Siguiente sabor después de ${product.name}`} aria-live="polite"><Image src={product.image} alt={`Empaque Tortitacos ${product.name}`} width={430} height={430} loading="eager" priority={i < 2} /></button>)}
         </div>
@@ -146,7 +146,7 @@ export default function ProductExperience({ products }) {
     </section>
 
     <section id="todos-los-sabores" className="finale">
-      <div className="finale-top"><span className="eyebrow">NO TE QUEDES CON UNO</span><span className="finale-count">01 / 04 — 04 / 04</span></div>
+      <div className="finale-top"><span className="eyebrow">NO TE QUEDES CON UNO</span></div>
       <h2>CONOCE TODOS<br/>NUESTROS <em>SABORES</em></h2>
       <div className="product-row">{products.map(product => <button type="button" className="product-card" onClick={() => openProduct(product)} key={product.id} style={{ '--card-color': product.color }} aria-label={`Ver detalles de ${product.name}`}><Image src={product.image} alt={`Empaque Tortitacos ${product.name}`} width={250} height={250} /><span className="card-name">{product.name}</span><span className="card-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5 15 15 5M6 5h9v9"/></svg></span></button>)}</div>
       <button type="button" className="pill-button dark-button" onClick={() => setCartOpen(true)}>COMPLETAR PEDIDO <span className="ui-arrow" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M5 15 15 5M6 5h9v9"/></svg></span></button>

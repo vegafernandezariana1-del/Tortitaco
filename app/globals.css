@@ -48,11 +48,32 @@ a:focus-visible,button:focus-visible{outline:3px solid #211510;outline-offset:5p
 @media(max-width:800px){.hero-collage{width:100%;height:48%;top:auto;bottom:30px}.hero-collage img{object-position:center bottom}}
 @media(max-width:560px){.hero{height:900px;min-height:900px}.hero-collage{height:43%;bottom:60px}}
 
-.hero{justify-content:center;background:#e36a11}.hero-mark{width:min(720px,78vw);padding:28px 40px;border-radius:14px;text-align:center;background:#e36a11b8;backdrop-filter:blur(3px)}.hero-collage{inset:0;top:0;right:0;width:100%;height:100%}.hero-collage img{object-fit:cover;object-position:center}.hero-side-note{display:none}
-@media(max-width:800px){.hero-mark{width:min(700px,86vw)}.hero-collage img{object-position:center}}
-@media(max-width:560px){.hero{height:780px;min-height:780px;padding:100px 5vw 80px}.hero-mark{width:94%;padding:22px 15px}.hero h1{font-size:clamp(54px,15vw,78px)}.hero-collage img{object-position:center}}
+.hero{justify-content:flex-start;background:#e36913}.hero-mark{width:min(620px,50vw);padding:28px 0;text-align:left;background:transparent;backdrop-filter:none}.hero-collage{inset:0 0 0 auto;top:0;right:0;width:54%;height:100%}.hero-collage img{object-fit:contain;object-position:right center}.hero-side-note{display:none}
+@media(max-width:800px){.hero{padding:100px 8vw}.hero-mark{width:min(540px,58vw)}.hero-collage{width:58%}.hero-collage img{object-position:right center}}
+@media(max-width:560px){.hero{height:900px;min-height:900px;padding:105px 7vw 70px;align-items:flex-start}.hero-mark{width:100%;padding:26px 0;text-align:center}.hero h1{font-size:clamp(38px,13vw,54px)}.hero-collage{width:100%;height:50%;top:auto;bottom:12px}.hero-collage img{object-position:center bottom}}
 
 .scroll-hint{z-index:2}
 
-.hero-mark{background:#e36a11e8}
-@media(max-width:560px){.hero h1{font-size:clamp(38px,13vw,54px)}}
+.hero-mark{background:transparent}
+
+.cart-trigger{background:#ffbd2e;border-color:#ffbd2e;color:#211510;box-shadow:0 5px 18px #21151030}.cart-trigger b{background:#211510;color:#ffbd2e}
+.checkout-sticky{position:fixed;z-index:12;left:50%;bottom:22px;transform:translateX(-50%);min-height:58px;width:min(440px,calc(100vw - 32px));padding:0 18px;display:flex;align-items:center;justify-content:center;gap:12px;border:0;border-radius:999px;background:#211510;color:#fff;box-shadow:0 10px 35px #21151055;font:800 10px var(--body);letter-spacing:.1em;cursor:pointer;transition:transform .2s,background .2s}.checkout-sticky:hover{transform:translate(-50%,-3px);background:var(--orange)}.checkout-sticky-icon{font-size:17px}.checkout-sticky b{margin-left:auto;color:#ffbd2e;font:700 15px var(--display);letter-spacing:0}.checkout-sticky-count{display:grid;place-items:center;min-width:24px;height:24px;padding:0 6px;border-radius:50%;background:#ffbd2e;color:#211510;font-size:10px}
+@media(max-width:560px){.checkout-sticky{bottom:max(14px,env(safe-area-inset-bottom));min-height:54px;padding:0 15px;gap:9px;font-size:9px}.checkout-sticky b{font-size:14px}}
+.card-arrow svg{display:block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.product-card:hover .card-arrow svg{transform:translate(2px,-2px)}.card-arrow svg{transition:transform .2s}
+
+/* Portada: el fondo plano conserva exactamente el naranja de la foto y deja la zona de texto libre de empaques. */
+.hero{background:#e36913;justify-content:flex-start}
+.hero:before,.hero:after,.hero-orbit{display:none}
+.hero-mark{z-index:2;width:min(39vw,560px);padding:28px 0;background:transparent;text-align:left}
+.hero h1{font-size:clamp(48px,6.1vw,88px)}
+.hero-collage{left:49%;right:0;top:0;width:51%;height:100%;overflow:hidden}
+.hero-collage img{object-fit:cover;object-position:right center}
+.ui-arrow{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;width:17px;height:17px;flex:none}
+.ui-arrow svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pill-button .ui-arrow,.text-link .ui-arrow{font-size:inherit}
+.cart-trigger .cart-symbol{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px}
+.cart-symbol svg,.checkout-sticky-icon svg{width:100%;height:100%;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.checkout-sticky-icon{display:inline-flex;width:19px;height:19px;align-items:center;justify-content:center}
+@media(max-width:800px){.hero{height:900px;min-height:900px;padding:105px 7vw 70px;align-items:flex-start;justify-content:center}.hero-mark{width:100%;margin-top:40px;padding:24px 0;text-align:center}.hero h1{font-size:clamp(46px,8vw,64px)}.hero-collage{left:0;right:0;top:auto;bottom:0;width:100%;height:43%;overflow:hidden}.hero-collage img{object-fit:contain;object-position:center bottom}}
+@media(max-width:560px){.hero-mark{margin-top:22px}.hero h1{font-size:clamp(38px,10vw,54px)}.hero-collage{height:40%;bottom:0}.hero-collage img{object-fit:contain;object-position:center bottom}.finale .product-card{padding:0}.card-name{max-width:calc(100% - 48px);font-size:12px}.card-arrow{display:flex;align-items:center;justify-content:center;width:20px;height:20px}.card-arrow svg{width:16px;height:16px}}
